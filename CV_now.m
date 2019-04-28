@@ -5,8 +5,8 @@ tc=rem(t,T); %tc=time in the current cycle,
              %measured from start of systole.
 if(tc<TS)   %measures the beginning of systole 
   e=(1-exp(-tc/tauS))/(1-exp(-TS/tauS)); %gives the flow during systole
-  CV=1*(CVD*(CVS/CVD)^e);  %same as the line above
+  CV=CVD*(CVS/CVD)^e;  %same as the line above
 else            %this marks the end of the systole 
   e=(1-exp(-(tc-TS)/tauD))/(1-exp(-(T-TS)/tauD)); %this and the next line calculate a new based on the diastole regimen
-  CV=1*(CVS*(CVD/CVS)^e);    %same as above
+  CV=CVS*(CVD/CVS)^e;    %same as above
 end    %ending the function
